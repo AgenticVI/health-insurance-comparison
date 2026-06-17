@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Exceptional Case Management Comparison | InsureRight</title>
+  <meta name="description" content="Compare Indian health insurers on chronic disease management, pre-existing diseases (PED), personal accident, and critical illness handling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --color-text-primary: #1A1A1A;
+      --color-text-secondary: #4A4A4A;
+      --color-border-secondary: #E5E7EB;
+      --color-border-tertiary: #F3F4F6;
+      --color-background-primary: #FFFFFF;
+      --color-background-secondary: #F9FAFB;
+      --color-brand-yellow: #FFC200;
+      --color-brand-red: #C8102E;
+      --color-brand-red-hover: #A00C22;
+      --color-shadow: rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #F4F5F7;
+      color: var(--color-text-primary);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    /* Premium Header */
+    header {
+      background-color: var(--color-brand-red);
+      color: #FFFFFF;
+      padding: 1.25rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-bottom: 4px solid var(--color-brand-yellow);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo-area {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--color-brand-yellow);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-tagline {
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .card {
+      background: var(--color-background-primary);
+      border-radius: 16px;
+      border: 1px solid var(--color-border-secondary);
+      box-shadow: 0 4px 20px var(--color-shadow);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      padding-bottom: 1rem;
+    }
+
+    .top-bar h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-brand-red);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+    }
+
+    .pill {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 30px;
+      border: 1px solid var(--color-border-secondary);
+      cursor: pointer;
+      background: var(--color-background-primary);
+      color: var(--color-text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background: var(--color-background-secondary);
+      border-color: var(--color-text-secondary);
+    }
+
+    .pill.active {
+      background: var(--color-brand-red);
+      color: #FFFFFF;
+      border-color: var(--color-brand-red);
+      box-shadow: 0 2px 6px rgba(200, 16, 46, 0.2);
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      font-size: 12.5px;
+      color: var(--color-text-secondary);
+      background: #F9FAFB;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border-tertiary);
+    }
+
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .tbl-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--color-border-secondary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      table-layout: fixed;
+    }
+
+    th {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--color-border-secondary);
+      background: #FFF9E6; /* Light yellow header */
+      text-align: left;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      vertical-align: top;
+      color: var(--color-text-primary);
+      line-height: 1.5;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #FFFDF5; /* Subtle yellow hover */
+    }
+
+    .ins-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-brand-red);
+    }
+
+    .ins-plan {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* Modern Badge Colors */
+    .b-yes { background: #E6F4EA; color: #137333; border: 1px solid #CEEAD6; }
+    .b-day1 { background: #E0F2F1; color: #00695C; border: 1px solid #B2DFDB; }
+    .b-partial { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+    .b-addon { background: #E8F0FE; color: #1A73E8; border: 1px solid #D2E3FC; }
+    .b-waiver { background: #F3E8FF; color: #7E22CE; border: 1px solid #E9D5FF; }
+    .b-no { background: #F3F4F6; color: #374151; border: 1px solid #E5E7EB; }
+
+    /* Column Widths */
+    th:first-child { width: 180px; }
+    th:nth-child(2) { width: 160px; }
+    th:nth-child(3) { width: 170px; }
+    th:nth-child(4) { width: 170px; }
+    th:nth-child(5) { width: 150px; }
+    th:nth-child(6) { width: 150px; }
+    th:nth-child(7) { width: 170px; }
+
+    .row-hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      border-top: 1px solid var(--color-border-secondary);
+      background: #FFFFFF;
+      margin-top: 3rem;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+      }
+      header {
+        border-bottom: 2px solid #000000;
+        color: #000000;
+        background: none;
+        padding: 1rem 0;
+      }
+      .logo-text { color: #000000; }
+      .header-tagline { color: #000000; background: none; border: none; }
+      .card {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+      .filter-row, .legend {
+        display: none;
+      }
+      table {
+        font-size: 11px;
+      }
+      td, th {
+        padding: 6px 8px;
+      }
+      th {
+        background: #F3F4F6 !important;
+        color: #000000;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <span class="logo-text">InsureRight Analyser</span>
+        <span class="logo-sub">Bajaj Capital Sales Pitch Companion</span>
+      </div>
+      <div class="header-tagline">
+        Health Insurance — Exceptional Case Management
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="top-bar">
+        <h3>Exceptional Case Management & Features Comparison</h3>
+        <div class="filter-row">
+          <span class="filter-label">Filter by feature:</span>
+          <button class="pill active" onclick="filter('all',this)">All insurers</button>
+          <button class="pill" onclick="filter('dm',this)">Disease mgmt program</button>
+          <button class="pill" onclick="filter('day1',this)">PED Day-1 cover</button>
+          <button class="pill" onclick="filter('pa',this)">In-built PA cover</button>
+          <button class="pill" onclick="filter('waiver',this)">PED waiver/buyback</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span><span class="dot" style="background:#00695C; border: 1px solid #B2DFDB"></span>Day-1 Cover</span>
+        <span><span class="dot" style="background:#137333; border: 1px solid #CEEAD6"></span>Yes (Standard)</span>
+        <span><span class="dot" style="background:#D97706; border: 1px solid #FDE68A"></span>Partial / Conditions Apply</span>
+        <span><span class="dot" style="background:#1A73E8; border: 1px solid #D2E3FC"></span>Add-on / Rider</span>
+        <span><span class="dot" style="background:#7E22CE; border: 1px solid #E9D5FF"></span>PED Waiver Available</span>
+        <span><span class="dot" style="background:#374151; border: 1px solid #E5E7EB"></span>Not Available</span>
+      </div>
+
+      <div class="tbl-wrap">
+        <table id="maintbl">
+          <thead>
+            <tr>
+              <th>Insurer</th>
+              <th>Key plan(s)</th>
+              <th>Disease mgmt program</th>
+              <th>PED handling</th>
+              <th>PED waiver / buyback</th>
+              <th>Personal accident (PA)</th>
+              <th>Critical illness</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Sources: IRDAI Regulations 2024-25, insurer product brochures, policy wordings, and public aggregators (as of June 2026).</p>
+    <p style="margin-top: 6px;">Features and terms may vary based on plan variant, age, and underwriting. Always verify policy wordings before recommending a product.</p>
+  </footer>
+
+  <script>
+    const data = [
+      {
+        name: "Aditya Birla Health",
+        plan: "Activ One / Activ Health Essential",
+        dm: ["day1", "Chronic Mgmt Program (CMP) — diabetes, hypertension, asthma, cholesterol, COPD, obesity, CAD. Dedicated health coaches, nutritionists & e-consults"],
+        ped: ["partial", "Standard: 36 months. Activ One Chronic Care rider: Day-1 IP cover for 7 chronic conditions"],
+        waiver: ["waiver", "PED waiver via Chronic Care rider (additional premium). HealthReturns rewards up to 30-100% premium back for healthy habits"],
+        pa: ["addon", "Personal accident add-on available"],
+        ci: ["addon", "Critical illness standalone & rider; second e-opinion for cancer/heart"],
+        tags: ["dm", "day1", "waiver"]
+      },
+      {
+        name: "Niva Bupa",
+        plan: "ReAssure 2.0 / Health Companion / Senior First",
+        dm: ["partial", "Wellness programs, annual health check-ups from Day 1, tele-consultations. No dedicated DMP but Smart Health+ rider covers PED hypertension & diabetes from Day 1"],
+        ped: ["partial", "Standard: 36-48 months (variant-wise). Smart Health+ rider: Day-1 cover for hypertension & diabetes. Optional cover can completely remove PED waiting period"],
+        waiver: ["waiver", "PED waiting period removal option (add-on premium). Lock the Clock feature freezes entry age"],
+        pa: ["addon", "Personal accident optional cover; waiting periods do not apply to PA"],
+        ci: ["addon", "Critical illness add-on; 90-day initial waiting period"],
+        tags: ["day1", "waiver", "pa"]
+      },
+      {
+        name: "HDFC ERGO",
+        plan: "Optima Secure / Energy / My Health Suraksha",
+        dm: ["yes", "Energy plan: dedicated disease management for Type-1 & Type-2 diabetes, IFG, IGT, hypertension from Day 1. HbA1C check-up benefit, wellness programs. Restore benefit (unlimited reinstatement)"],
+        ped: ["partial", "Standard: 36 months. Energy plan: Day-1 IP cover for diabetes & hypertension. Optima Secure: standard 36-month wait"],
+        waiver: ["waiver", "PED waiver available on Energy plan via dedicated chronic cover. Optima Secure: 4X coverage (Base+Plus+Restore+Secure)"],
+        pa: ["addon", "Separate PA policy (Group/Individual). Women's Suraksha plan has PA component"],
+        ci: ["addon", "Critical illness riders and standalone plans. 98% claim settlement ratio"],
+        tags: ["dm", "day1", "waiver"]
+      },
+      {
+        name: "Star Health",
+        plan: "Comprehensive / Diabetes Safe / Senior Red Carpet",
+        dm: ["yes", "Diabetes Safe Plan: dedicated diabetes management (Type 1 & Type 2) with OPD cover, HbA1C tests. Disease-specific plans for cardiac, cancer. Largest standalone HI by market share"],
+        ped: ["partial", "Standard: 36 months. Senior Red Carpet: 1-year PED wait. Diabetes Safe: covers from Year 1"],
+        waiver: ["waiver", "PED Buyback Rider available on Comprehensive plan — reduces standard waiting to 1 or 2 years"],
+        pa: ["addon", "Personal accident add-on / standalone plan. Accidental dental cover in-built"],
+        ci: ["addon", "Cancer Care, Cardiac plans as standalone. Critical illness rider on Comprehensive"],
+        tags: ["dm", "waiver", "pa"]
+      },
+      {
+        name: "Care Health",
+        plan: "Care Supreme / Advantage / Senior",
+        dm: ["partial", "Wellness programs and health check-ups annually. No standalone DMP but Care Supreme has chronic cover. Highest 100% CSR (FY 2024-25)"],
+        ped: ["partial", "Standard: 36 months. Care Supreme Advantage: PED waiting period reduction possible. Sum insured bonus up to 100% even on claims"],
+        waiver: ["waiver", "PED waiver add-on available on Care Supreme — reduces wait to 1-2 years. No Claim Bonus: 50% per year (upto 100%)"],
+        pa: ["addon", "Personal accident add-on rider available"],
+        ci: ["addon", "Critical illness optional cover. Cancer and cardiac-specific riders available"],
+        tags: ["waiver", "pa"]
+      },
+      {
+        name: "ICICI Lombard",
+        plan: "Elevate / Complete Health / Golden Shield",
+        dm: ["partial", "Wellness rewards for healthy habits (reward points). Tele/video consultations, online doctor chat, pharmacy & diagnostics, second opinions. No dedicated disease management programme per se"],
+        ped: ["partial", "Standard: 36 months. Elevate: flexible PED cover options, can be reduced via add-on. Golden Shield (senior): 24-month PED wait. Cashless anywhere network"],
+        waiver: ["waiver", "PED waiting period reduction available as add-on in Elevate plan"],
+        pa: ["addon", "Saral Suraksha Bima (standalone PA). Personal Protect Plan. PA rider on health plans. Claim service guarantee (interest if >14 days)"],
+        ci: ["addon", "Women's Cancer Shield Plan; critical illness riders; Health Shield 360 for comprehensive cover"],
+        tags: ["pa", "waiver"]
+      },
+      {
+        name: "Tata AIG",
+        plan: "Medicare / Medicare Premier / Elder Care",
+        dm: ["partial", "Wellness rewards, teleconsultation. Elder Care: home nursing & physiotherapy post-hospitalisation. No structured DMP, but global cover + consumables cover included"],
+        ped: ["partial", "Standard: 36 months. Cumulative Bonus: 50% SI increase per claim-free year (up to 100%). Elder Care: PED cover after standard wait"],
+        waiver: ["no", "No specific PED buyback product. Standard wait applies. Bears 50% medical test cost if policy issued"],
+        pa: ["yes", "PA component built into Medicare variants. Standalone PA plans also available"],
+        ci: ["addon", "Critical illness riders and standalone plans. Global cover: diagnose in India, treat worldwide"],
+        tags: ["pa"]
+      },
+      {
+        name: "ManipalCigna",
+        plan: "ProHealth / Prime Senior / Prime Protect",
+        dm: ["partial", "International expertise via Cigna. Wellness programs, second opinion, 4-hour cashless claim settlement. No standalone DMP but Prime Senior: 90-day PED wait (shortest)"],
+        ped: ["partial", "Standard: 24-36 months. Prime Senior: only 90-day PED waiting period — best-in-class for seniors"],
+        waiver: ["partial", "PED waiting period significantly reduced in Prime Senior (90 days). Standard waiver add-on for other plans"],
+        pa: ["yes", "Personal accident standalone policy available. PA rider included in ProHealth variants. Full suite: health, PA, critical illness, travel, global care"],
+        ci: ["yes", "ProHealth Critical Illness plan. Survival period applies. International emergency cover. Standalone critical illness for major illnesses"],
+        tags: ["pa", "waiver"]
+      },
+      {
+        name: "Go Digit",
+        plan: "Health Care / Infinity Wallet",
+        dm: ["no", "Digital-first platform. No dedicated disease management programme. Lower premiums focus. Wellness features via app"],
+        ped: ["partial", "Standard: 36-48 months. Infinity Wallet plan: unlimited reinstatement. Day-1 cover not available for PED"],
+        waiver: ["no", "No PED buyback or waiver product currently"],
+        pa: ["addon", "Personal accident add-on available"],
+        ci: ["addon", "Critical illness add-on rider"],
+        tags: []
+      },
+      {
+        name: "SBI General",
+        plan: "Arogya Supreme / Group Health",
+        dm: ["no", "No structured DMP. Standard wellness programs. 14,000+ hospital network. Affordable entry-level covers"],
+        ped: ["partial", "Standard: 36 months. IRDAI reduced from 4 years to 3 years (2024 reform) applies"],
+        waiver: ["no", "No specific PED waiver or buyback product"],
+        pa: ["yes", "Personal accident standalone plan available. Group plan includes PA component"],
+        ci: ["addon", "Critical illness optional cover available"],
+        tags: ["pa"]
+      }
+    ];
+
+    const badgeClass = { day1: "b-day1", yes: "b-yes", partial: "b-partial", addon: "b-addon", no: "b-no", waiver: "b-waiver" };
+    const badgeLabel = { day1: "Day 1", yes: "Yes", partial: "Partial", addon: "Add-on", no: "No", waiver: "Waiver avail." };
+
+    function makeCell(arr) {
+      const [type, ...rest] = arr;
+      return `<span class="badge ${badgeClass[type]}">${badgeLabel[type]}</span><div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;line-height:1.5">${rest.join(' ')}</div>`;
+    }
+
+    const tbody = document.getElementById('tbody');
+    data.forEach(d => {
+      const tr = document.createElement('tr');
+      tr.dataset.tags = d.tags.join(',');
+      tr.innerHTML = `
+        <td><div class="ins-name">${d.name}</div></td>
+        <td><div class="ins-plan">${d.plan}</div></td>
+        <td>${makeCell(d.dm)}</td>
+        <td>${makeCell(d.ped)}</td>
+        <td>${makeCell(d.waiver)}</td>
+        <td>${makeCell(d.pa)}</td>
+        <td>${makeCell(d.ci)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    function filter(tag, btn) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#tbody tr').forEach(tr => {
+        if (tag === 'all' || tr.dataset.tags.split(',').includes(tag)) {
+          tr.classList.remove('row-hidden');
+        } else {
+          tr.classList.add('row-hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
